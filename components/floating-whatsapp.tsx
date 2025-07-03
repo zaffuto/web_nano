@@ -24,10 +24,7 @@ export default function FloatingWhatsApp() {
   }, [])
 
   const handleWhatsAppClick = () => {
-    window.open(
-      "https://wa.me/56979540471?text=Hola,%20me%20interesa%20solicitar%20un%20demo%20de%20BOLT%20Gerente%20AI",
-      "_blank",
-    )
+    window.open("https://api.whatsapp.com/send?phone=56979540471&text=Solicita%20Demo", "_blank")
   }
 
   return (

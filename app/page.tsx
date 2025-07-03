@@ -1,8 +1,9 @@
 import Hero from "@/components/hero"
 import Navbar from "@/components/navbar"
 import { SparklesCore } from "@/components/sparkles"
+import HowItWorksSection from "@/components/how-it-works-section"
+import BenefitsSection from "@/components/benefits-section"
 import PricingSection from "@/components/pricing-section"
-import FeaturesSection from "@/components/features-section"
 import WhatsAppSection from "@/components/whatsapp-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
@@ -27,7 +28,8 @@ export default function Home() {
       <div className="relative z-10">
         <Navbar />
         <Hero />
-        <FeaturesSection />
+        <HowItWorksSection />
+        <BenefitsSection />
         <PricingSection />
         <WhatsAppSection />
         <ContactSection />

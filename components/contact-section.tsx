@@ -10,7 +10,7 @@ export default function ContactSection() {
   }
 
   const handleDemoClick = () => {
-    window.open("https://app.smarterbot.cl/dashboard", "_blank")
+    window.open("https://app.smarterbot.cl", "_blank")
   }
 
   return (

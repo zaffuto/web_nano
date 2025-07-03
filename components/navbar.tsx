@@ -12,11 +12,13 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleDemoClick = () => {
-    window.open("https://app.smarterbot.cl/dashboard", "_blank")
+    window.open("https://app.smarterbot.cl", "_blank")
   }
 
   const handlePlanClick = () => {
-    window.open("https://app.smarterbot.cl", "_blank")
+    // Scroll to the pricing section
+    document.getElementById("planes")?.scrollIntoView({ behavior: "smooth" })
+    if (isMenuOpen) setIsMenuOpen(false)
   }
 
   return (
@@ -42,7 +44,7 @@ export default function Navbar() {
           Iniciar Sesión
         </Button>
         <Button className="bg-purple-600 hover:bg-purple-700 text-white" onClick={handlePlanClick}>
-          Comenzar Ahora
+          Ver Planes
         </Button>
       </div>
 
@@ -79,7 +81,7 @@ export default function Navbar() {
                 Iniciar Sesión
               </Button>
               <Button className="bg-purple-600 hover:bg-purple-700 text-white justify-start" onClick={handlePlanClick}>
-                Comenzar Ahora
+                Ver Planes
               </Button>
             </div>
           </div>

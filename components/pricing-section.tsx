@@ -11,81 +11,65 @@ export default function PricingSection() {
   }
 
   const handleDemoClick = () => {
-    window.open("https://app.smarterbot.cl/dashboard", "_blank")
+    window.open("https://app.smarterbot.cl", "_blank")
   }
 
   const plans = [
     {
-      name: "KVM 2",
-      originalPrice: "$40.000",
-      price: "$19.900",
-      renewalPrice: "$29.900",
+      name: "Plan Básico",
+      subtitle: "Para pequeños negocios",
+      price: "$49.000",
       period: "/mes",
-      discount: "AHORRA 50%",
-      description: "En planes de 24 meses; IVA no incluido",
-      features: [
-        "1 Chatbot preconfigurado",
-        "Inventario básico Excel/Sheet",
-        "20 tarjetas V0",
-        "Soporte por correo electrónico",
-        "Autenticación Google/Facebook",
-      ],
+      features: ["WhatsApp Business", "IA Básica", "Pagos con Mercado Pago", "50% descuento en actualización web"],
       popular: false,
     },
     {
-      name: "KVM 4",
-      originalPrice: "$60.000",
-      price: "$29.900",
-      renewalPrice: "$49.900",
+      name: "Plan Profesional",
+      subtitle: "Para negocios en crecimiento",
+      price: "$99.000",
       period: "/mes",
-      discount: "AHORRA 50%",
-      description: "En planes de 24 meses; IVA no incluido",
       features: [
-        "3 Chatbots para TUS áreas",
-        "Inventario avanzado con sincronización",
-        "50 tarjetas V0 personalizadas",
-        "Soporte por chat 24/7",
-        "Autenticación 24x7 completa",
-        "Integración WhatsApp Business",
+        "WhatsApp Business",
+        "IA Avanzada",
+        "Múltiples opciones de pago",
+        "Automatizaciones N8N",
+        "Actualización de sitio web",
       ],
       popular: true,
     },
     {
-      name: "KVM 8",
-      originalPrice: "$120.000",
-      price: "$59.900",
-      renewalPrice: "$99.900",
+      name: "Plan Empresarial",
+      subtitle: "Para grandes empresas",
+      price: "$149.000",
       period: "/mes",
-      discount: "AHORRA 50%",
-      description: "En planes de 24 meses; IVA no incluido",
       features: [
-        "Chatbots ilimitados",
-        "Inventario empresarial ilimitado",
-        "Tarjetas V0 ilimitadas",
-        "Soporte dedicado",
-        "API personalizada",
-        "Integración completa Google/Facebook",
+        "WhatsApp Business API",
+        "IA Premium Personalizada",
+        "Integración completa de pagos",
+        "Automatizaciones avanzadas",
+        "Actualización de sitio web",
+        "Soporte prioritario",
       ],
       popular: false,
     },
   ]
 
   return (
-    <section id="planes" className="py-12 md:py-20 px-4 md:px-6">
-      <div className="container mx-auto">
+    <section id="planes" className="py-16 md:py-24 px-4 md:px-6 bg-black/20">
+      <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">TUS Planes y Precios</h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto px-4">
-            Consumo fijo: sin sorpresas para TI. Sólo una suscripción plana por mes.
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Planes y Precios</h2>
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+            Elige el plan que mejor se adapte a tu negocio
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -94,35 +78,26 @@ export default function PricingSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card
-                className={`relative h-full ${plan.popular ? "border-purple-500 border-2" : "border-white/10"} bg-black/50 backdrop-blur-sm`}
+                className={`relative h-full ${plan.popular ? "border-purple-500 border-2 scale-105" : "border-white/10"} bg-black/50 backdrop-blur-sm`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center">
                       <Star className="w-4 h-4 mr-1" />
-                      Recomendado para TI
+                      Popular
                     </div>
                   </div>
                 )}
 
-                <CardHeader className="text-center pb-6 md:pb-8">
-                  <CardTitle className="text-white text-xl md:text-2xl mb-2">{plan.name}</CardTitle>
+                <CardHeader className="text-center pb-6">
+                  <CardTitle className="text-white text-xl mb-1">{plan.name}</CardTitle>
+                  <p className="text-gray-400 text-sm">{plan.subtitle}</p>
 
-                  <div className="mb-4">
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <span className="text-gray-400 line-through text-base md:text-lg">{plan.originalPrice}</span>
-                      <span className="bg-green-500 text-white px-2 py-1 rounded text-xs md:text-sm font-bold">
-                        {plan.discount}
-                      </span>
-                    </div>
+                  <div className="mt-4">
                     <div className="flex items-baseline justify-center">
                       <span className="text-3xl md:text-4xl font-bold text-white">{plan.price}</span>
                       <span className="text-gray-400 ml-1">{plan.period}</span>
                     </div>
-                    <p className="text-xs md:text-sm text-gray-400 mt-2 px-2">{plan.description}</p>
-                    <p className="text-xs text-gray-500 mt-1 px-2">
-                      Se renueva a {plan.renewalPrice}/mes después de 2 años.
-                    </p>
                   </div>
                 </CardHeader>
 
@@ -131,18 +106,18 @@ export default function PricingSection() {
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <Check className="w-5 h-5 text-purple-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm md:text-base">{feature}</span>
+                        <span className="text-gray-300 text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   <Button
-                    className={`w-full mt-6 md:mt-8 ${
+                    className={`w-full mt-6 ${
                       plan.popular ? "bg-purple-600 hover:bg-purple-700" : "bg-white/10 hover:bg-white/20 text-white"
                     }`}
                     onClick={handlePlanClick}
                   >
-                    Elegir Plan
+                    Seleccionar
                   </Button>
                 </CardContent>
               </Card>
@@ -154,18 +129,12 @@ export default function PricingSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-8 md:mt-12 px-4"
+          className="text-center mt-12 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
         >
-          <p className="text-gray-400 mb-6">
-            ¿No estás seguro? Prueba TU demo gratis y descubre cómo BOLT puede transformar TU negocio.
-          </p>
-          <Button
-            size="lg"
-            variant="outline"
-            className="text-white border-purple-500 hover:bg-purple-500/20 bg-transparent w-full sm:w-auto"
-            onClick={handleDemoClick}
-          >
-            Demo Gratis
+          <h3 className="text-2xl font-bold text-white mb-4">Comienza a automatizar tu negocio hoy</h3>
+          <p className="text-gray-400 mb-6">Implementación en menos de 24 horas. Soporte personalizado.</p>
+          <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8" onClick={handleDemoClick}>
+            Solicitar Demo
           </Button>
         </motion.div>
       </div>
