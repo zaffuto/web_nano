@@ -65,7 +65,7 @@ export default function PricingSection() {
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Planes y Precios</h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            Elige el plan que mejor se adapte a tu negocio
+            Elige el plan que mejor se adapte al negocio
           </p>
         </motion.div>
 
@@ -131,7 +131,7 @@ export default function PricingSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-12 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
         >
-          <h3 className="text-2xl font-bold text-white mb-4">Comienza a automatizar tu negocio hoy</h3>
+          <h3 className="text-2xl font-bold text-white mb-4">Comienza a automatizar el negocio hoy</h3>
           <p className="text-gray-400 mb-6">Implementación en menos de 24 horas. Soporte personalizado.</p>
           <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8" onClick={handleDemoClick}>
             Solicitar Demo

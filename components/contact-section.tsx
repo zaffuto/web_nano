@@ -22,22 +22,23 @@ export default function ContactSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Contacto y Solicitud para TI</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Contacto y Solicitud</h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            Estamos listos para ayudarte a transformar TU negocio con BOLT Gerente AI
+            Estamos listos para ayudarte a transformar tu negocio con SmarterBot
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          {/* Left Column - Map */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">TU Información de Contacto</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">Información de Contacto</h3>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mb-6">
               <div className="flex items-start space-x-4">
                 <MapPin className="w-6 h-6 text-purple-500 mt-1 flex-shrink-0" />
                 <div>
@@ -63,23 +64,38 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
+
+            {/* Interactive Map */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.8234567890123!2d-70.6891234567890!3d-33.4567890123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a1234567890%3A0x1234567890abcdef!2sConde%20del%20Maule%204364%2C%20Estaci%C3%B3n%20Central%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2scl!4v1234567890123!5m2!1ses!2scl"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-[300px]"
+              />
+            </div>
           </motion.div>
 
+          {/* Right Column - Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white/5 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/10"
+            className="bg-white/5 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/10 h-full"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Contacta por WhatsApp para TU Demo</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Contacta por WhatsApp para Demo</h3>
             <p className="text-gray-400 mb-6">
-              La forma más rápida de conocer BOLT es a través de una demostración personalizada
+              La forma más rápida de conocer SmarterBot es a través de una demostración personalizada
             </p>
 
             <div className="space-y-4">
               <Button className="w-full bg-green-600 hover:bg-green-700 text-white" onClick={handleWhatsAppClick}>
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Pide TU demo por WhatsApp
+                Pide demo por WhatsApp
               </Button>
 
               <Button
@@ -92,18 +108,28 @@ export default function ContactSection() {
             </div>
 
             <div className="mt-6 p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
-              <h4 className="text-white font-semibold mb-2">¿Qué es V0 para TI?</h4>
+              <h4 className="text-white font-semibold mb-2">¿Qué es V0?</h4>
               <p className="text-gray-400 text-sm mb-3">
                 Un motor de plantillas que crea "tarjetas" de contenido visual (resúmenes, estadísticas, CTA) basadas en
-                TUS datos y TUS necesidades.
+                datos y necesidades específicas.
               </p>
-              <h4 className="text-white font-semibold mb-2">¿Por qué incluirlo en TU negocio?</h4>
+              <h4 className="text-white font-semibold mb-2">¿Por qué incluirlo en el negocio?</h4>
               <ul className="text-gray-400 text-sm space-y-1">
-                <li>• Refuerza TU landing con módulos dinámicos personalizados</li>
-                <li>• Genera notificaciones automáticas para TUS clientes por WhatsApp</li>
-                <li>• Acelera el time-to-market de TU mensaje y TUS comunicaciones</li>
-                <li>• Integra con TU inventario de Excel/Sheet automáticamente</li>
+                <li>• Refuerza landing con módulos dinámicos personalizados</li>
+                <li>• Genera notificaciones automáticas para clientes por WhatsApp</li>
+                <li>• Acelera el time-to-market de mensajes y comunicaciones</li>
+                <li>• Integra con inventario de Excel/Sheet automáticamente</li>
               </ul>
+            </div>
+
+            <div className="mt-6 p-4 bg-green-500/10 rounded-lg border border-green-500/20">
+              <h4 className="text-white font-semibold mb-2">Horarios de Atención</h4>
+              <div className="text-gray-400 text-sm space-y-1">
+                <p>Lunes a Viernes: 9:00 - 18:00</p>
+                <p>Sábados: 9:00 - 14:00</p>
+                <p>Domingos: Cerrado</p>
+                <p className="text-green-400 font-medium mt-2">WhatsApp disponible 24/7</p>
+              </div>
             </div>
           </motion.div>
         </div>

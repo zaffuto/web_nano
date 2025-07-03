@@ -29,7 +29,7 @@ export default function Navbar() {
     >
       <Link href="/" className="flex items-center space-x-2">
         <Bot className="w-8 h-8 text-purple-500" />
-        <span className="text-white font-medium text-xl">BOLT Gerente AI</span>
+        <span className="text-white font-medium text-xl">SmarterBot Chile</span>
       </Link>
 
       <div className="hidden md:flex items-center space-x-6 lg:space-x-8">

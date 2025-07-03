@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Bot className="w-8 h-8 text-purple-500" />
-              <span className="text-white font-medium text-xl">BOLT Gerente AI</span>
+              <span className="text-white font-medium text-xl">SmarterBot Chile</span>
             </div>
             <p className="text-gray-400 text-sm md:text-base">
               Vende sin parar con WhatsApp Business. Chatbot preconfigurado, inventario con Excel/Sheet y autenticación
@@ -56,7 +56,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">© 2025 BOLT Gerente AI. Todos los derechos reservados.</p>
+          <p className="text-gray-400 text-sm">© 2025 SmarterBot Chile. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
