@@ -12,7 +12,7 @@ export default function Hero() {
   }
 
   const handleDemoClick = () => {
-    window.open("https://app.smarterbot.cl", "_blank")
+    window.open("https://app.smarterbot.cl/dashboard", "_blank")
   }
 
   return (

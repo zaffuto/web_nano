@@ -12,7 +12,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleDemoClick = () => {
-    window.open("https://app.smarterbot.cl", "_blank")
+    window.open("https://app.smarterbot.cl/dashboard", "_blank")
   }
 
   const handlePlanClick = () => {
