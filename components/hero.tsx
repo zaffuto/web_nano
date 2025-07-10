@@ -2,18 +2,17 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { Play, Calendar, Wrench, Zap } from "lucide-react"
+import { MessageCircle, Clock, CheckCircle } from "lucide-react"
 import { FloatingPaper } from "@/components/floating-paper"
 import { RoboAnimation } from "@/components/robo-animation"
 
 export default function Hero() {
-  const handlePlanClick = () => {
-    // Scroll to the pricing section instead of opening a new page
-    document.getElementById("planes")?.scrollIntoView({ behavior: "smooth" })
+  const handleContactClick = () => {
+    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
   }
 
-  const handleDemoClick = () => {
-    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
+  const handleServicesClick = () => {
+    document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
@@ -28,16 +27,16 @@ export default function Hero() {
           {/* Left Column - Content */}
           <div className="space-y-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-              <div className="inline-flex items-center px-4 py-2 bg-purple-500/20 rounded-full border border-purple-500/30 mb-6">
-                <Wrench className="w-4 h-4 text-purple-400 mr-2" />
-                <span className="text-purple-300 text-sm font-medium">Soluciones por hora o por tarea</span>
+              <div className="inline-flex items-center px-4 py-2 bg-green-500/20 rounded-full border border-green-500/30 mb-6">
+                <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
+                <span className="text-green-300 text-sm font-medium">Solución en 90 minutos</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                SmarterBot:
+                Conectamos y automatizamos
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                   {" "}
-                  Automatización Real
+                  lo que necesitás
                 </span>
               </h1>
             </motion.div>
@@ -48,11 +47,11 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <p className="text-gray-300 text-lg md:text-xl mb-4 leading-relaxed">
-                Soluciones automatizadas y atención personalizada. Por tarea o por hora.
+                Respondemos por WhatsApp, conectamos tu agenda, armamos tus flujos.
               </p>
               <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                Desde calendario hasta apps móviles. Para pymes, freelancers y profesionales ocupados que necesitan
-                conectar y automatizar procesos reales.
+                <strong className="text-white">Una sola vez. Pagás y listo.</strong> Sin mensualidades ni
+                complicaciones.
               </p>
             </motion.div>
 
@@ -62,18 +61,22 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-start gap-4"
             >
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8" onClick={handleDemoClick}>
-                <Calendar className="mr-2 h-5 w-5" />
-                Agenda una llamada de 15 minutos
+              <Button
+                size="lg"
+                className="bg-green-600 hover:bg-green-700 text-white px-8"
+                onClick={handleContactClick}
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Agendá solución ahora
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="text-white border-purple-500 hover:bg-purple-500/20 bg-transparent"
-                onClick={handlePlanClick}
+                onClick={handleServicesClick}
               >
-                <Play className="mr-2 h-5 w-5" />
-                Ver Servicios
+                <Clock className="mr-2 h-5 w-5" />
+                Ver qué hacemos
               </Button>
             </motion.div>
 
@@ -86,15 +89,15 @@ export default function Hero() {
             >
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-white">90min</div>
-                <div className="text-sm text-gray-400">Implementación</div>
+                <div className="text-sm text-gray-400">Máximo</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-white">$35k</div>
                 <div className="text-sm text-gray-400">Desde</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white">Real</div>
-                <div className="text-sm text-gray-400">Sin humo</div>
+                <div className="text-2xl md:text-3xl font-bold text-white">1 vez</div>
+                <div className="text-sm text-gray-400">Pagás</div>
               </div>
             </motion.div>
           </div>
@@ -118,9 +121,9 @@ export default function Hero() {
                 transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                 className="absolute top-10 -left-10 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
               >
-                <Wrench className="w-6 h-6 text-orange-400 mb-2" />
-                <p className="text-white text-sm font-medium">Zapier</p>
-                <p className="text-gray-400 text-xs">N8N</p>
+                <MessageCircle className="w-6 h-6 text-green-400 mb-2" />
+                <p className="text-white text-sm font-medium">WhatsApp</p>
+                <p className="text-gray-400 text-xs">Respuesta real</p>
               </motion.div>
 
               <motion.div
@@ -128,9 +131,9 @@ export default function Hero() {
                 transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
                 className="absolute top-32 -right-8 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
               >
-                <Calendar className="w-6 h-6 text-blue-400 mb-2" />
-                <p className="text-white text-sm font-medium">Calendario</p>
-                <p className="text-gray-400 text-xs">WhatsApp</p>
+                <Clock className="w-6 h-6 text-blue-400 mb-2" />
+                <p className="text-white text-sm font-medium">Agenda</p>
+                <p className="text-gray-400 text-xs">Conectada</p>
               </motion.div>
 
               <motion.div
@@ -138,9 +141,9 @@ export default function Hero() {
                 transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
                 className="absolute bottom-20 -left-8 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
               >
-                <Zap className="w-6 h-6 text-yellow-400 mb-2" />
-                <p className="text-white text-sm font-medium">AppSheet</p>
-                <p className="text-gray-400 text-xs">Apps móviles</p>
+                <CheckCircle className="w-6 h-6 text-purple-400 mb-2" />
+                <p className="text-white text-sm font-medium">Flujos</p>
+                <p className="text-gray-400 text-xs">Automáticos</p>
               </motion.div>
             </motion.div>
           </div>

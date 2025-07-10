@@ -11,13 +11,12 @@ import { useState } from "react"
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const handleDemoClick = () => {
-    window.open("https://app.smarterbot.cl", "_blank")
+  const handleContactClick = () => {
+    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
   }
 
-  const handlePlanClick = () => {
-    // Scroll to the pricing section
-    document.getElementById("planes")?.scrollIntoView({ behavior: "smooth" })
+  const handleServicesClick = () => {
+    document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" })
     if (isMenuOpen) setIsMenuOpen(false)
   }
 
@@ -28,23 +27,19 @@ export default function Navbar() {
       className="flex items-center justify-between px-4 md:px-6 py-4 backdrop-blur-sm border-b border-white/10 relative z-50"
     >
       <Link href="/" className="flex items-center space-x-2">
-        <Bot className="w-8 h-8 text-purple-500" />
+        <Bot className="w-8 h-8 text-green-500" />
         <span className="text-white font-medium text-xl">SmarterBot Chile</span>
       </Link>
 
       <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-        <NavLink href="#caracteristicas">Características</NavLink>
-        <NavLink href="#como-funciona">Cómo Funciona</NavLink>
-        <NavLink href="#planes">Planes</NavLink>
+        <NavLink href="#servicios">Servicios</NavLink>
+        <NavLink href="#casos">Casos reales</NavLink>
         <NavLink href="#contacto">Contacto</NavLink>
       </div>
 
       <div className="hidden md:flex items-center space-x-4">
-        <Button variant="ghost" className="text-white hover:text-purple-400" onClick={handleDemoClick}>
-          Iniciar Sesión
-        </Button>
-        <Button className="bg-purple-600 hover:bg-purple-700 text-white" onClick={handlePlanClick}>
-          Ver Planes
+        <Button className="bg-green-600 hover:bg-green-700 text-white" onClick={handleContactClick}>
+          Consultar ahora
         </Button>
       </div>
 
@@ -60,28 +55,18 @@ export default function Navbar() {
           className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-b border-white/10 md:hidden"
         >
           <div className="flex flex-col space-y-4 px-6 py-6">
-            <NavLink href="#caracteristicas" mobile onClick={() => setIsMenuOpen(false)}>
-              Características
+            <NavLink href="#servicios" mobile onClick={() => setIsMenuOpen(false)}>
+              Servicios
             </NavLink>
-            <NavLink href="#como-funciona" mobile onClick={() => setIsMenuOpen(false)}>
-              Cómo Funciona
-            </NavLink>
-            <NavLink href="#planes" mobile onClick={() => setIsMenuOpen(false)}>
-              Planes
+            <NavLink href="#casos" mobile onClick={() => setIsMenuOpen(false)}>
+              Casos reales
             </NavLink>
             <NavLink href="#contacto" mobile onClick={() => setIsMenuOpen(false)}>
               Contacto
             </NavLink>
-            <div className="flex flex-col space-y-3 pt-4 border-t border-white/10">
-              <Button
-                variant="ghost"
-                className="text-white hover:text-purple-400 justify-start"
-                onClick={handleDemoClick}
-              >
-                Iniciar Sesión
-              </Button>
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white justify-start" onClick={handlePlanClick}>
-                Ver Planes
+            <div className="pt-4 border-t border-white/10">
+              <Button className="bg-green-600 hover:bg-green-700 text-white w-full" onClick={handleContactClick}>
+                Consultar ahora
               </Button>
             </div>
           </div>
@@ -109,7 +94,7 @@ function NavLink({
       onClick={onClick}
     >
       {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full" />
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 transition-all group-hover:w-full" />
     </Link>
   )
 }

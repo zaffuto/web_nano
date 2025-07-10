@@ -2,15 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { MapPin, Mail, Phone, MessageCircle } from "lucide-react"
+import { MapPin, Mail, Phone, MessageCircle, Clock, CheckCircle } from "lucide-react"
 
 export default function ContactSection() {
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/56979540471", "_blank")
-  }
-
-  const handleDemoClick = () => {
-    window.open("https://app.smarterbot.cl", "_blank")
+    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
   }
 
   return (
@@ -22,9 +18,9 @@ export default function ContactSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Contacto y Solicitud</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Hablemos de tu proyecto</h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            Estamos listos para ayudarte a transformar tu negocio con SmarterBot
+            Contanos qué querés automatizar y te decimos cómo hacerlo
           </p>
         </motion.div>
 
@@ -36,11 +32,11 @@ export default function ContactSection() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">Información de Contacto</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">Información de contacto</h3>
 
             <div className="space-y-4 mb-6">
               <div className="flex items-start space-x-4">
-                <MapPin className="w-6 h-6 text-purple-500 mt-1 flex-shrink-0" />
+                <MapPin className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-white font-medium">Dirección</p>
                   <p className="text-gray-400">Conde del Maule 4364, Estación Central</p>
@@ -49,7 +45,7 @@ export default function ContactSection() {
               </div>
 
               <div className="flex items-center space-x-4">
-                <Mail className="w-6 h-6 text-purple-500 flex-shrink-0" />
+                <Mail className="w-6 h-6 text-green-500 flex-shrink-0" />
                 <div>
                   <p className="text-white font-medium">Email</p>
                   <p className="text-gray-400">smarterbotcl@gmail.com</p>
@@ -57,9 +53,9 @@ export default function ContactSection() {
               </div>
 
               <div className="flex items-center space-x-4">
-                <Phone className="w-6 h-6 text-purple-500 flex-shrink-0" />
+                <Phone className="w-6 h-6 text-green-500 flex-shrink-0" />
                 <div>
-                  <p className="text-white font-medium">Teléfono</p>
+                  <p className="text-white font-medium">WhatsApp</p>
                   <p className="text-gray-400">+56 979 540 471</p>
                 </div>
               </div>
@@ -87,49 +83,51 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white/5 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/10 h-full"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Contacta por WhatsApp para Demo</h3>
-            <p className="text-gray-400 mb-6">
-              La forma más rápida de conocer SmarterBot es a través de una demostración personalizada
-            </p>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Reservá tu hora ahora</h3>
+            <p className="text-gray-400 mb-6">Hablamos por WhatsApp, te cotizamos y si te convence, lo hacemos.</p>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mb-6">
               <Button className="w-full bg-green-600 hover:bg-green-700 text-white" onClick={handleWhatsAppClick}>
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Pide demo por WhatsApp
-              </Button>
-
-              <Button
-                variant="outline"
-                className="w-full text-white border-purple-500 hover:bg-purple-500/20 bg-transparent"
-                onClick={handleDemoClick}
-              >
-                Acceder al Dashboard
+                Hablar por WhatsApp
               </Button>
             </div>
 
-            <div className="mt-6 p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
-              <h4 className="text-white font-semibold mb-2">¿Qué es V0?</h4>
-              <p className="text-gray-400 text-sm mb-3">
-                Un motor de plantillas que crea "tarjetas" de contenido visual (resúmenes, estadísticas, CTA) basadas en
-                datos y necesidades específicas.
-              </p>
-              <h4 className="text-white font-semibold mb-2">¿Por qué incluirlo en el negocio?</h4>
-              <ul className="text-gray-400 text-sm space-y-1">
-                <li>• Refuerza landing con módulos dinámicos personalizados</li>
-                <li>• Genera notificaciones automáticas para clientes por WhatsApp</li>
-                <li>• Acelera el time-to-market de mensajes y comunicaciones</li>
-                <li>• Integra con inventario de Excel/Sheet automáticamente</li>
-              </ul>
+            <div className="space-y-4 mb-6">
+              <div className="flex items-center space-x-3 text-gray-300">
+                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-sm">Respuesta en menos de 2 horas</span>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-300">
+                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-sm">Cotización gratuita</span>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-300">
+                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-sm">Precio fijo, sin sorpresas</span>
+              </div>
             </div>
 
-            <div className="mt-6 p-4 bg-green-500/10 rounded-lg border border-green-500/20">
-              <h4 className="text-white font-semibold mb-2">Horarios de Atención</h4>
+            <div className="bg-green-500/10 rounded-lg border border-green-500/20 p-4 mb-6">
+              <h4 className="text-white font-semibold mb-2 flex items-center">
+                <Clock className="w-4 h-4 mr-2" />
+                Horarios de atención
+              </h4>
               <div className="text-gray-400 text-sm space-y-1">
                 <p>Lunes a Viernes: 9:00 - 18:00</p>
                 <p>Sábados: 9:00 - 14:00</p>
-                <p>Domingos: Cerrado</p>
-                <p className="text-green-400 font-medium mt-2">WhatsApp disponible 24/7</p>
+                <p className="text-green-400 font-medium mt-2">WhatsApp: Respuesta en máximo 2 horas</p>
               </div>
+            </div>
+
+            <div className="bg-blue-500/10 rounded-lg border border-blue-500/20 p-4">
+              <h4 className="text-white font-semibold mb-2">¿Qué necesitás para empezar?</h4>
+              <ul className="text-gray-400 text-sm space-y-1">
+                <li>• Contanos qué querés automatizar</li>
+                <li>• Te decimos si se puede hacer</li>
+                <li>• Te cotizamos (precio fijo)</li>
+                <li>• Si te convence, lo hacemos</li>
+              </ul>
             </div>
           </motion.div>
         </div>
