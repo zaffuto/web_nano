@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { Play, Sparkles, Bot, MessageSquare, CreditCard, Zap } from "lucide-react"
+import { Play, Calendar, Wrench, Zap } from "lucide-react"
 import { FloatingPaper } from "@/components/floating-paper"
 import { RoboAnimation } from "@/components/robo-animation"
 
@@ -13,7 +13,7 @@ export default function Hero() {
   }
 
   const handleDemoClick = () => {
-    window.open("https://app.smarterbot.cl", "_blank")
+    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
   }
 
   return (
@@ -29,15 +29,15 @@ export default function Hero() {
           <div className="space-y-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
               <div className="inline-flex items-center px-4 py-2 bg-purple-500/20 rounded-full border border-purple-500/30 mb-6">
-                <Bot className="w-4 h-4 text-purple-400 mr-2" />
-                <span className="text-purple-300 text-sm font-medium">Automatización con IA</span>
+                <Wrench className="w-4 h-4 text-purple-400 mr-2" />
+                <span className="text-purple-300 text-sm font-medium">Soluciones por hora o por tarea</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                SmarterBot: Tu Aliado
+                SmarterBot:
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                   {" "}
-                  Digital 24/7
+                  Automatización Real
                 </span>
               </h1>
             </motion.div>
@@ -48,12 +48,11 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <p className="text-gray-300 text-lg md:text-xl mb-4 leading-relaxed">
-                La inteligencia artificial que habla, vende y resuelve en WhatsApp.
+                Soluciones automatizadas y atención personalizada. Por tarea o por hora.
               </p>
               <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                SmarterBot integra WhatsApp, Mercado Pago, automatizaciones con N8N y mucho más para que tu negocio
-                funcione incluso mientras dormís. Atención al cliente, venta directa, pagos y reportes automáticos desde
-                un solo lugar.
+                Desde calendario hasta apps móviles. Para pymes, freelancers y profesionales ocupados que necesitan
+                conectar y automatizar procesos reales.
               </p>
             </motion.div>
 
@@ -64,8 +63,8 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-start gap-4"
             >
               <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8" onClick={handleDemoClick}>
-                <Play className="mr-2 h-5 w-5" />
-                Iniciar Sesión
+                <Calendar className="mr-2 h-5 w-5" />
+                Agenda una llamada de 15 minutos
               </Button>
               <Button
                 size="lg"
@@ -73,8 +72,8 @@ export default function Hero() {
                 className="text-white border-purple-500 hover:bg-purple-500/20 bg-transparent"
                 onClick={handlePlanClick}
               >
-                <Sparkles className="mr-2 h-5 w-5" />
-                Ver Demo
+                <Play className="mr-2 h-5 w-5" />
+                Ver Servicios
               </Button>
             </motion.div>
 
@@ -86,16 +85,16 @@ export default function Hero() {
               className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10"
             >
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white">24/7</div>
-                <div className="text-sm text-gray-400">Disponibilidad</div>
+                <div className="text-2xl md:text-3xl font-bold text-white">90min</div>
+                <div className="text-sm text-gray-400">Implementación</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white">500+</div>
-                <div className="text-sm text-gray-400">Empresas</div>
+                <div className="text-2xl md:text-3xl font-bold text-white">$35k</div>
+                <div className="text-sm text-gray-400">Desde</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white">99.9%</div>
-                <div className="text-sm text-gray-400">Uptime</div>
+                <div className="text-2xl md:text-3xl font-bold text-white">Real</div>
+                <div className="text-sm text-gray-400">Sin humo</div>
               </div>
             </motion.div>
           </div>
@@ -119,9 +118,9 @@ export default function Hero() {
                 transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                 className="absolute top-10 -left-10 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
               >
-                <MessageSquare className="w-6 h-6 text-green-400 mb-2" />
-                <p className="text-white text-sm font-medium">WhatsApp</p>
-                <p className="text-gray-400 text-xs">Business API</p>
+                <Wrench className="w-6 h-6 text-orange-400 mb-2" />
+                <p className="text-white text-sm font-medium">Zapier</p>
+                <p className="text-gray-400 text-xs">N8N</p>
               </motion.div>
 
               <motion.div
@@ -129,9 +128,9 @@ export default function Hero() {
                 transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
                 className="absolute top-32 -right-8 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
               >
-                <CreditCard className="w-6 h-6 text-blue-400 mb-2" />
-                <p className="text-white text-sm font-medium">Pagos</p>
-                <p className="text-gray-400 text-xs">Automáticos</p>
+                <Calendar className="w-6 h-6 text-blue-400 mb-2" />
+                <p className="text-white text-sm font-medium">Calendario</p>
+                <p className="text-gray-400 text-xs">WhatsApp</p>
               </motion.div>
 
               <motion.div
@@ -140,8 +139,8 @@ export default function Hero() {
                 className="absolute bottom-20 -left-8 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
               >
                 <Zap className="w-6 h-6 text-yellow-400 mb-2" />
-                <p className="text-white text-sm font-medium">N8N</p>
-                <p className="text-gray-400 text-xs">Automatización</p>
+                <p className="text-white text-sm font-medium">AppSheet</p>
+                <p className="text-gray-400 text-xs">Apps móviles</p>
               </motion.div>
             </motion.div>
           </div>

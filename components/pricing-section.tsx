@@ -3,54 +3,65 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { Check, Star } from "lucide-react"
+import { Check, Star, Wrench, Clock, Bot, Smartphone, Calendar } from "lucide-react"
 
 export default function PricingSection() {
   const handlePlanClick = () => {
-    window.open("https://app.smarterbot.cl", "_blank")
+    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
   }
 
   const handleDemoClick = () => {
-    window.open("https://app.smarterbot.cl", "_blank")
+    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
   }
 
-  const plans = [
+  const services = [
     {
-      name: "Plan Básico",
-      subtitle: "Para pequeños negocios",
-      price: "$49.000",
-      period: "/mes",
-      features: ["WhatsApp Business", "IA Básica", "Pagos con Mercado Pago", "50% descuento en actualización web"],
+      name: "Automatización por tarea",
+      subtitle: "Una conexión entre apps o procesos",
+      price: "$35.000",
+      period: "CLP",
+      icon: Wrench,
+      features: [
+        "Google Forms → Gmail → Sheets",
+        "Zapier o N8N",
+        "Implementación en 90 minutos",
+        "Resumen final del trabajo",
+        "Pago por transferencia en Chile",
+      ],
       popular: false,
+      example: "ej: Google Forms → Gmail → Sheets",
     },
     {
-      name: "Plan Profesional",
-      subtitle: "Para negocios en crecimiento",
-      price: "$99.000",
-      period: "/mes",
+      name: "Hora técnica programador",
+      subtitle: "Te ayudamos a crear, revisar o escalar",
+      price: "$35.000",
+      period: "CLP / hora",
+      icon: Clock,
       features: [
-        "WhatsApp Business",
-        "IA Avanzada",
-        "Múltiples opciones de pago",
-        "Automatizaciones N8N",
-        "Actualización de sitio web",
+        "Automatizaciones con N8N o Zapier",
+        "Revisión de procesos existentes",
+        "Escalamiento de automatizaciones",
+        "Soporte técnico directo",
+        "Consultoría especializada",
       ],
       popular: true,
+      example: "Perfecto si ya usas estas herramientas",
     },
     {
-      name: "Plan Empresarial",
-      subtitle: "Para grandes empresas",
-      price: "$149.000",
-      period: "/mes",
+      name: "Asistente digital personalizado",
+      subtitle: "Atención vía WhatsApp o correo",
+      price: "$60.000",
+      period: "CLP / semana",
+      icon: Bot,
       features: [
-        "WhatsApp Business API",
-        "IA Premium Personalizada",
-        "Integración completa de pagos",
-        "Automatizaciones avanzadas",
-        "Actualización de sitio web",
-        "Soporte prioritario",
+        "Atención por WhatsApp",
+        "Seguimiento de tareas",
+        "Gestión de correos",
+        "Tareas administrativas simples",
+        "Respuesta en horario laboral",
       ],
       popular: false,
+      example: "Secretaria virtual digital",
     },
   ]
 
@@ -63,24 +74,24 @@ export default function PricingSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Planes y Precios</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Precios claros</h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            Elige el plan que mejor se adapte al negocio
+            Desde $35.000 CLP (1 hora y media). Planes por semana o por mes con seguimiento.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan, index) => (
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+          {services.map((service, index) => (
             <motion.div
-              key={plan.name}
+              key={service.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card
-                className={`relative h-full ${plan.popular ? "border-purple-500 border-2 scale-105" : "border-white/10"} bg-black/50 backdrop-blur-sm`}
+                className={`relative h-full ${service.popular ? "border-purple-500 border-2 scale-105" : "border-white/10"} bg-black/50 backdrop-blur-sm`}
               >
-                {plan.popular && (
+                {service.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center">
                       <Star className="w-4 h-4 mr-1" />
@@ -90,20 +101,24 @@ export default function PricingSection() {
                 )}
 
                 <CardHeader className="text-center pb-6">
-                  <CardTitle className="text-white text-xl mb-1">{plan.name}</CardTitle>
-                  <p className="text-gray-400 text-sm">{plan.subtitle}</p>
+                  <div className="flex justify-center mb-4">
+                    <service.icon className="w-12 h-12 text-purple-500" />
+                  </div>
+                  <CardTitle className="text-white text-xl mb-1">{service.name}</CardTitle>
+                  <p className="text-gray-400 text-sm">{service.subtitle}</p>
+                  <p className="text-purple-400 text-xs italic">{service.example}</p>
 
                   <div className="mt-4">
                     <div className="flex items-baseline justify-center">
-                      <span className="text-3xl md:text-4xl font-bold text-white">{plan.price}</span>
-                      <span className="text-gray-400 ml-1">{plan.period}</span>
+                      <span className="text-3xl md:text-4xl font-bold text-white">{service.price}</span>
+                      <span className="text-gray-400 ml-1 text-sm">{service.period}</span>
                     </div>
                   </div>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
                   <ul className="space-y-3">
-                    {plan.features.map((feature, featureIndex) => (
+                    {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <Check className="w-5 h-5 text-purple-500 mr-3 mt-0.5 flex-shrink-0" />
                         <span className="text-gray-300 text-sm">{feature}</span>
@@ -113,11 +128,11 @@ export default function PricingSection() {
 
                   <Button
                     className={`w-full mt-6 ${
-                      plan.popular ? "bg-purple-600 hover:bg-purple-700" : "bg-white/10 hover:bg-white/20 text-white"
+                      service.popular ? "bg-purple-600 hover:bg-purple-700" : "bg-white/10 hover:bg-white/20 text-white"
                     }`}
                     onClick={handlePlanClick}
                   >
-                    Seleccionar
+                    Contratar
                   </Button>
                 </CardContent>
               </Card>
@@ -125,16 +140,79 @@ export default function PricingSection() {
           ))}
         </div>
 
+        {/* Additional Services */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
+          className="grid md:grid-cols-2 gap-8 mb-12"
         >
-          <h3 className="text-2xl font-bold text-white mb-4">Comienza a automatizar el negocio hoy</h3>
-          <p className="text-gray-400 mb-6">Implementación en menos de 24 horas. Soporte personalizado.</p>
-          <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8" onClick={handleDemoClick}>
-            Solicitar Demo
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+              <Calendar className="w-6 h-6 text-blue-400 mr-2" />
+              Calendario + WhatsApp sin bot
+            </h3>
+            <p className="text-gray-400 mb-4">
+              Agenda visible, formulario simple y WhatsApp manual de respuesta automática
+            </p>
+            <div className="text-2xl font-bold text-white mb-2">$35.000 CLP</div>
+            <p className="text-purple-400 text-sm">/ implementación</p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+              <Smartphone className="w-6 h-6 text-green-400 mr-2" />
+              App para Android con AppSheet
+            </h3>
+            <p className="text-gray-400 mb-4">
+              Apps internas para gestión, inventario, clientes. APK directo sin Play Store
+            </p>
+            <div className="text-2xl font-bold text-white mb-2">desde $45.000</div>
+            <p className="text-purple-400 text-sm">CLP</p>
+          </div>
+        </motion.div>
+
+        {/* How we work */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
+        >
+          <h3 className="text-2xl font-bold text-white mb-6">¿Cómo lo hacemos?</h3>
+          <div className="grid md:grid-cols-4 gap-6 text-left">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-purple-400 font-bold">1</span>
+              </div>
+              <p className="text-gray-300 text-sm">Nos contás qué querés automatizar o resolver</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-purple-400 font-bold">2</span>
+              </div>
+              <p className="text-gray-300 text-sm">Te proponemos la mejor opción: Zapier, N8N o Claude</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-purple-400 font-bold">3</span>
+              </div>
+              <p className="text-gray-300 text-sm">Lo hacemos en máximo 90 minutos (si es simple)</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-purple-400 font-bold">4</span>
+              </div>
+              <p className="text-gray-300 text-sm">Te entregamos todo funcionando</p>
+            </div>
+          </div>
+
+          <Button
+            size="lg"
+            className="bg-purple-600 hover:bg-purple-700 text-white px-8 mt-8"
+            onClick={handleDemoClick}
+          >
+            Agenda una llamada de 15 minutos
           </Button>
         </motion.div>
       </div>
