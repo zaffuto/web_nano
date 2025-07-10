@@ -52,8 +52,8 @@ export default function FloatingWhatsApp() {
                   >
                     <X className="w-3 h-3" />
                   </button>
-                  <p className="text-sm font-medium">¡Solicita demo gratis!</p>
-                  <p className="text-xs text-gray-600">Haz clic para chatear con nosotros</p>
+                  <p className="text-sm font-medium">Automatizo tu tarea en 90 min</p>
+                  <p className="text-xs text-gray-600">$35.000 CLP • Precio fijo</p>
                   <div className="absolute bottom-0 right-4 transform translate-y-1/2 rotate-45 w-2 h-2 bg-white"></div>
                 </div>
               </motion.div>

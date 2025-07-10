@@ -17,6 +17,7 @@ export default function ServicesSection() {
       example: "Ejemplo: Google Forms → Gmail → Sheets",
       price: "$35.000",
       time: "90 minutos",
+      popular: true,
     },
     {
       icon: Calendar,
@@ -25,6 +26,7 @@ export default function ServicesSection() {
       example: "Ejemplo: Calendly + WhatsApp manual",
       price: "$35.000",
       time: "90 minutos",
+      popular: true,
     },
     {
       icon: Smartphone,
@@ -33,6 +35,7 @@ export default function ServicesSection() {
       example: "Ejemplo: App de inventario con Google Sheets",
       price: "$45.000",
       time: "2-3 horas",
+      popular: false,
     },
     {
       icon: Bot,
@@ -41,6 +44,7 @@ export default function ServicesSection() {
       example: "Ejemplo: Secretaria virtual por WhatsApp",
       price: "$60.000",
       time: "por semana",
+      popular: false,
     },
     {
       icon: Clock,
@@ -49,6 +53,7 @@ export default function ServicesSection() {
       example: "Ejemplo: Revisar tu automatización actual",
       price: "$35.000",
       time: "por hora",
+      popular: false,
     },
   ]
 
@@ -61,9 +66,9 @@ export default function ServicesSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">¿Qué hacemos?</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">¿Qué automatizamos?</h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            Soluciones puntuales. Pagás una vez y listo.
+            Tareas puntuales. Precio fijo. Máximo 90 minutos.
           </p>
         </motion.div>
 
@@ -74,8 +79,16 @@ export default function ServicesSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10 hover:border-green-500/50 transition-colors group"
+              className={`bg-white/5 backdrop-blur-sm rounded-lg p-6 border ${
+                service.popular ? "border-green-500/50 ring-2 ring-green-500/20" : "border-white/10"
+              } hover:border-green-500/50 transition-colors group relative`}
             >
+              {service.popular && (
+                <div className="absolute -top-3 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                  Más pedido
+                </div>
+              )}
+
               <service.icon className="w-12 h-12 text-green-500 mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-white text-xl font-semibold mb-3">{service.title}</h3>
               <p className="text-gray-400 text-sm mb-3">{service.description}</p>
@@ -86,18 +99,45 @@ export default function ServicesSection() {
                 <div className="text-gray-400 text-sm">{service.time}</div>
               </div>
 
-              <Button className="w-full bg-green-600 hover:bg-green-700 text-white" onClick={handleContactClick}>
-                Contratar ahora
+              <Button
+                className={`w-full ${
+                  service.popular
+                    ? "bg-green-600 hover:bg-green-700 text-white"
+                    : "bg-white/10 hover:bg-green-600 text-white"
+                }`}
+                onClick={handleContactClick}
+              >
+                Automatizar ahora
               </Button>
             </motion.div>
           ))}
         </div>
 
-        {/* How it works */}
+        {/* Main CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-16 bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-sm rounded-xl p-8 border border-green-500/30 text-center"
+        >
+          <h3 className="text-3xl font-bold text-white mb-4">¿Tenés una tarea que querés automatizar?</h3>
+          <p className="text-gray-300 text-lg mb-6">
+            Contanos qué necesitás. Te decimos si se puede hacer en 90 minutos por $35.000.
+          </p>
+          <Button
+            size="lg"
+            className="bg-green-600 hover:bg-green-700 text-white px-12 py-4 text-lg"
+            onClick={handleContactClick}
+          >
+            Automatizar mi tarea en 90 minutos, $35.000
+          </Button>
+        </motion.div>
+
+        {/* How it works */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-16 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
         >
           <h3 className="text-2xl font-bold text-white mb-8 text-center">¿Cómo trabajamos?</h3>
@@ -107,28 +147,28 @@ export default function ServicesSection() {
                 <span className="text-green-400 font-bold">1</span>
               </div>
               <h4 className="text-white font-semibold mb-2">Nos contás</h4>
-              <p className="text-gray-400 text-sm">Qué querés conectar o automatizar</p>
+              <p className="text-gray-400 text-sm">Qué querés automatizar</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-green-400 font-bold">2</span>
               </div>
-              <h4 className="text-white font-semibold mb-2">Te cotizamos</h4>
-              <p className="text-gray-400 text-sm">Precio fijo, sin sorpresas</p>
+              <h4 className="text-white font-semibold mb-2">Te confirmamos</h4>
+              <p className="text-gray-400 text-sm">Si se puede hacer en 90 min</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-green-400 font-bold">3</span>
               </div>
               <h4 className="text-white font-semibold mb-2">Lo hacemos</h4>
-              <p className="text-gray-400 text-sm">En máximo 90 minutos</p>
+              <p className="text-gray-400 text-sm">Máximo 90 minutos</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-green-400 font-bold">4</span>
               </div>
-              <h4 className="text-white font-semibold mb-2">Te entregamos</h4>
-              <p className="text-gray-400 text-sm">Todo funcionando + explicación</p>
+              <h4 className="text-white font-semibold mb-2">Pagás $35.000</h4>
+              <p className="text-gray-400 text-sm">Una sola vez, listo</p>
             </div>
           </div>
         </motion.div>

@@ -18,9 +18,11 @@ export default function ContactSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Hablemos de tu proyecto</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Automatizo tu tarea en 90 minutos
+          </h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            Contanos qué querés automatizar y te decimos cómo hacerlo
+            <strong className="text-green-400">$35.000 CLP.</strong> Contanos qué querés automatizar y lo hacemos.
           </p>
         </motion.div>
 
@@ -83,13 +85,21 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white/5 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/10 h-full"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Reservá tu hora ahora</h3>
-            <p className="text-gray-400 mb-6">Hablamos por WhatsApp, te cotizamos y si te convence, lo hacemos.</p>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+              Automatizar mi tarea en 90 minutos, $35.000
+            </h3>
+            <p className="text-gray-400 mb-6">
+              Contanos qué querés automatizar. Te decimos si se puede hacer y lo hacemos.
+            </p>
 
             <div className="space-y-4 mb-6">
-              <Button className="w-full bg-green-600 hover:bg-green-700 text-white" onClick={handleWhatsAppClick}>
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Hablar por WhatsApp
+              <Button
+                size="lg"
+                className="w-full bg-green-600 hover:bg-green-700 text-white py-4 text-lg"
+                onClick={handleWhatsAppClick}
+              >
+                <MessageCircle className="mr-2 h-6 w-6" />
+                Automatizar mi tarea ahora
               </Button>
             </div>
 
@@ -100,11 +110,15 @@ export default function ContactSection() {
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-sm">Cotización gratuita</span>
+                <span className="text-sm">Precio fijo $35.000 CLP</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-sm">Precio fijo, sin sorpresas</span>
+                <span className="text-sm">Máximo 90 minutos de trabajo</span>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-300">
+                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-sm">Te explico cómo funciona</span>
               </div>
             </div>
 
@@ -121,12 +135,12 @@ export default function ContactSection() {
             </div>
 
             <div className="bg-blue-500/10 rounded-lg border border-blue-500/20 p-4">
-              <h4 className="text-white font-semibold mb-2">¿Qué necesitás para empezar?</h4>
+              <h4 className="text-white font-semibold mb-2">Ejemplos de tareas que automatizamos:</h4>
               <ul className="text-gray-400 text-sm space-y-1">
-                <li>• Contanos qué querés automatizar</li>
-                <li>• Te decimos si se puede hacer</li>
-                <li>• Te cotizamos (precio fijo)</li>
-                <li>• Si te convence, lo hacemos</li>
+                <li>• Formulario → Email → Planilla</li>
+                <li>• Agenda → Confirmación WhatsApp</li>
+                <li>• Pedidos → Notificación automática</li>
+                <li>• Contactos → Base de datos</li>
               </ul>
             </div>
           </motion.div>
